@@ -1,0 +1,88 @@
+
+
+#portal {
+  position: absolute;
+}
+
+.overlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: overlayOut 0.5s cubic-bezier(0.44, -0.56, 0.59, 1.54) forwards;
+}
+
+.overlay.active {
+  animation: overlayIn 0.5s cubic-bezier(0.44, -0.56, 0.59, 1.54) forwards;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 100;
+  background: linear-gradient(to right, #000428, #004e92);
+  max-width: 300px;
+  height: 150px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: modalOut 0.5s cubic-bezier(0.44, -0.56, 0.59, 1.54) forwards;
+}
+
+.modal.active {
+  animation: modalIn 0.5s cubic-bezier(0.44, -0.56, 0.59, 1.54) forwards;
+}
+
+.modal h1 {
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
